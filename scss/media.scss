@@ -16,12 +16,25 @@
     .why-block__right img {
         width: 100%;
     }
+
+    .form-block.first {
+        margin-top: 0;
+    }
 }
 
 
 @media screen and (max-width: 1280px) {
+    header .header-menu:first-child .header-menu-item {
+        margin: 0 5px 0 15px;
+    }
+    header .header-menu-item .btn {
+        margin-left: 0;
+    }
     main {
         padding-top: 150px;
+    }
+    .why-block {
+        margin-top: 100px;
     }
     .goal .container {
         flex-wrap: wrap;
@@ -50,6 +63,7 @@
     .goal .input {
         margin: 30px auto 0;
     }
+
     .our-team {
         &__list {
             justify-content: center;
@@ -60,6 +74,14 @@
                 padding: 0 30px;
                 margin-bottom: 20px;
             }
+        }
+    }
+
+    .why-block__right {
+        display: flex;
+        align-items: flex-end;
+        img {
+            position: static;
         }
     }
 }
@@ -137,6 +159,9 @@
             width: 100%;
             img {
                 position: static;
+                max-width: 600px;
+                display: block;
+                margin: auto;
             }
         }
     }
@@ -236,6 +261,10 @@
 }
 
 @media screen and (max-width: 480px) {
+    header .dropdown-menu {
+        width: 100%;
+        right: 0;
+    }
     .follow-us {
         padding-top: 30px;
     }

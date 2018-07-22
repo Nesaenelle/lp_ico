@@ -299,7 +299,7 @@
     }
 }
 
-// @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
 //     .modal {
 //         padding: 70px 50px;
 //         max-height: 602px;
@@ -321,7 +321,13 @@
 //             padding: 27px 30px;
 //         }
 //     }
-// }
+ .modal-body form {
+    width: 100%;
+ }
+ .modal-body {
+    width: 100%;
+ }
+}
 // @media screen and (max-width: 550px) {
 //     .modal {
 //         max-height: 640px;

@@ -21,7 +21,7 @@ main {
         font-family: Helvetica;
         font-size: 18px;
         font-weight: bold;
-        line-height: 3.33;
+        // line-height: 3.33;   
         letter-spacing: 4.5px;
         text-align: center;
         color: #39b54a;
@@ -78,6 +78,7 @@ main {
 
 .our-team {
     background: #f1f4f8;
+    overflow: hidden;
     &__list {
         display: flex;
         justify-content: space-between;
