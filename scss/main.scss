@@ -85,7 +85,15 @@ main {
         margin-top: 95px;
         &_item {
             width: calc(100%/5);
+            $c: &;
+            &:hover {
+                #{$c}_img {
+                    background-size: 100%!important;
+                    // background-position: top!important;
+                }
+            }
             &_img {
+                transition: 0.5s;
                 margin: auto;
                 width: 220px;
                 height: 220px;
@@ -187,7 +195,18 @@ main {
 
 .roadmap {
     height: 960px;
-    background: green;
+    // background: green;
+    background-image: linear-gradient(303deg, #273142, #39b54a);
+    .container {
+        padding: 40px;
+    }
+    &__title {
+        text-align: center;
+        color: #fff;
+        font-family: BebasNeue;
+        font-size: 20px;
+        letter-spacing: 4px;
+    }
 }
 
 .follow-us {
