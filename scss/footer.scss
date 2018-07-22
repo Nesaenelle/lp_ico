@@ -1,0 +1,27 @@
+footer {
+    background: #f1f4f8;
+    .container {
+        display: flex;
+        align-items: center;
+        padding: 25px 36px 29px 36px;
+    }
+
+    .copyright {
+        font-size: 18px;
+        color: #a8aab7;
+        font-family: Helvetica;
+        letter-spacing: 0.3px;
+        white-space: nowrap;
+    }
+
+    .footer-socials {
+        display: flex;
+        margin-left: 112px;
+
+        img {
+            margin-left: 12px;
+            width: 57px;
+            height: 57px;
+        }
+    }
+}

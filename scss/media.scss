@@ -1,0 +1,326 @@
+/* MOBILES */
+
+.desktop {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 1600px) {
+    .goal__info {
+        padding-right: 0;
+    }
+
+    .why-block__right img {
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 1280px) {
+    main {
+        padding-top: 150px;
+    }
+    .goal .container {
+        flex-wrap: wrap;
+    }
+    .goal__bg {
+        // width: 100%;
+        margin: auto;
+        img {
+            position: static;
+        }
+    }
+    .goal__info_text {
+        text-align: center;
+        font-size: 18px;
+    }
+    .goal__info_title {
+        font-size: 60px;
+        text-align: center;
+    }
+    .goal__info {
+        width: 100%;
+    }
+    .watch-btn {
+        margin: 30px auto 30px;
+    }
+    .goal .input {
+        margin: 30px auto 0;
+    }
+    .our-team {
+        &__list {
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            &_item {
+                width: auto;
+                padding: 0 30px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+    .why-block .title h1 {
+        line-height: 1.67;
+        letter-spacing: 4.5px;
+        text-align: center;
+    }
+
+    main {
+        padding-top: 80px;
+    }
+    .goal__bg {
+        width: 80%;
+    }
+    .goal__info {
+        .input {
+            width: 100%;
+        }
+    }
+    header {
+        top: 10px;
+        .mobile-header {
+            display: flex;
+            width: 100%;
+            .logo {
+                display: block;
+                width: 80px;
+            }
+        }
+        .hamburger {
+            display: block;
+        }
+        nav {
+            display: none;
+        }
+
+        .logo {
+            display: none;
+        }
+    }
+
+    .our-team__list_item_img {
+        width: 180px;
+        height: 180px;
+    }
+    .our-team__list_item_title {
+        font-size: 16px;
+    }
+
+    .our-team__list_item_link {
+        img {
+            width: 18px;
+        }
+    }
+
+    .why-block {
+        margin-top: 50px;
+        flex-wrap: wrap;
+        &__list {
+            padding-left: 0;
+        }
+        &__left {
+            width: 100%;
+        }
+        &__right {
+            width: 100%;
+            img {
+                position: static;
+            }
+        }
+    }
+
+    .form-block.first {
+        .container {
+            padding: 0 40px;
+        }
+    }
+
+    .form-block.last .container {
+        padding: 0 40px;
+    }
+
+    .form-block .container {
+        flex-wrap: wrap;
+    }
+
+    .form-block__title {
+        width: 100%;
+        font-size: 40px;
+        text-align: center;
+        br {
+            display: none;
+        }
+    }
+    .follow-us {
+        padding-top: 40px;
+    }
+    .socials {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .accessible {
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        &__subtitle {
+            text-align: center;
+        }
+        &__title {
+            text-align: center;
+        }
+        &__soon {
+            text-align: center;
+        }
+        &__images {
+            margin: auto;
+            max-width: 400px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            img {
+                margin: 0;
+            }
+        }
+        &__list {
+            width: 70%;
+            margin: auto;
+        }
+        &__left {
+            width: 100%;
+        }
+        &__right {
+            width: 100%;
+        }
+    }
+    form {
+        width: 100%;
+    }
+    .form-block .input {
+        width: 100%;
+        margin: 30px auto 0;
+    }
+
+    footer .footer-socials {
+        margin: 0;
+    }
+    footer .container {
+        justify-content: space-between;
+        padding: 25px 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    // .our-team__list_item {
+    //     padding: 0 15   px;
+    // }
+    .our-team__list_item {
+        width: 100%;
+        &_title {
+            margin-top: 25px;
+        }
+    }
+
+
+}
+
+@media screen and (max-width: 480px) {
+    .follow-us {
+        padding-top: 30px;
+    }
+    .our-team__list {
+        margin-top: 20px;
+    }
+    .form-block.first .container, .form-block.last .container {
+        padding: 0 20px;
+    }
+    .why-block {
+        padding: 0;
+        &__list {
+            margin-top: 30px;
+            &_item {
+                &_title {
+                    font-size: 16px;
+                }
+                &_descr{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    .form-block {
+        padding: 30px 0;
+        &__title {
+            font-size: 32px;
+        }
+        .input {
+            height: 30px;
+            input  {
+                height: 30px;
+            }
+            .btn {
+                height: 30px;
+                line-height: 0;
+                font-size: 12px;
+            }
+        }
+    }
+    .form-block.first {
+        margin-top: 0;
+    }
+    .socials__item img {
+        width: 50px;
+        height: 50px;
+    }
+    .accessible {
+        margin-top: 40px;
+
+    }
+    .accessible__title {
+        font-size: 32px;
+    }
+    .accessible__list {
+        width: 100%;
+        font-size: 12px;
+        ul li {
+            margin-left: 20px;
+        }
+    }
+    .accessible__images {
+        display: block;
+        img {
+            display: block;
+            margin: 30px auto 0;   
+        }
+    }
+    footer .container {
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        .footer-socials {
+      
+            width: 100%;
+            justify-content: center;
+            img {
+                margin: 0 10px;
+                width: 52px;
+                height: 52px;
+            }
+        }
+        .copyright {
+            margin-top: 30px;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

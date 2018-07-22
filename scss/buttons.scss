@@ -1,0 +1,99 @@
+.btn {
+    border-radius: 4px;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    padding: 8px 20px;
+    color: #fff;
+    font-weight: 600;
+    font-family: Source Sans Pro;
+    cursor: pointer;
+    font-size: 14px;
+    // max-height: 36px;
+    text-align: center;
+    position: relative;
+    white-space: nowrap;
+    &:active {
+        transform: translateY(1px);
+    }
+    &:focus {
+        outline: none;
+    }
+    &-small {
+        padding: 6px 9px;
+        font-size: 12px;
+        font-weight: normal;
+        min-width: 60px;
+    }
+    &-middle {
+        padding: 5px 14px;
+        font-size: 14px;
+    }
+    &-green {
+        background: #39b54a;
+    }
+    &-dark-blue {
+        background: #516173;
+    }
+    &-dark-grey {
+        background: #333f52;
+    }
+    &-light-grey {
+        background: #c5d0de;
+    }
+    &-grey {
+        background: #a8aab7;
+    }
+    input[type="file"] {
+        cursor: pointer;
+        position: absolute;
+        top: 0px;
+        opacity: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.watch-btn {
+    margin-top: 41px;
+    margin-bottom: 64px;
+    width: 211px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #f1f4f8;
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);
+    font-family: Helvetica;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    color: #516173;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    &:active {
+        transform: translateY(1px);
+    }
+    &__icon {
+        // background: ();
+        width: 50px;
+        min-width: 40px;
+        height: 100%;
+        background: #39b54a;
+        border-radius: 50px;
+        margin-right: 15px;
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 6px;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 18px solid #fff;
+        }
+    }
+}
