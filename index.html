@@ -15,9 +15,6 @@
         <div class="container">
             <div class="mobile-header">
                 <a href="#home" class="logo" data-navigation-link="home"><img src="img/icons/Logo_Ex2_180_180.svg"></a>
-                <!--                 <div class="header__burger">
-                    <div class="header__burger__icon"><img src="img/icons/Logo_Ex2_180_180.svg" alt=""></div>
-                </div> -->
                 <div class="hamburger" data-burger>
                     <span></span>
                     <span></span>
@@ -36,7 +33,7 @@
                             <a href="" class="js-popup" data-modal="1">LOG IN</a>
                         </li>
                         <li class="header-menu-item">
-                            <a href="#form" class="js-popup" data-modal="2">
+                            <a href="#" class="js-popup" data-modal="2">
                                 <button class="btn btn-green">REGISTER</button>
                             </a>
                         </li>
@@ -56,7 +53,7 @@
                         <a href="" class="js-popup" data-modal="1">LOG IN</a>
                     </li>
                     <li class="header-menu-item">
-                        <a href="#form" class="js-popup" data-modal="2">
+                        <a href="#" class="js-popup" data-modal="2">
                             <button class="btn btn-green">REGISTER</button>
                         </a>
                     </li>
@@ -75,7 +72,7 @@
                     <div class="watch-btn js-popup" data-modal="4">
                         <div class="watch-btn__icon"></div>WATCH VIDEO</div>
                     <div class="goal__info_text last"> Become one of the first EX2 users</div>
-                    <form novalidate>
+                    <form novalidate class="js-email-form">
                         <div class="input">
                             <input type="email" required>
                             <button class="btn">
@@ -165,7 +162,7 @@
             <div class="container">
                 <div class="form-block__title">Are you interested to track our success?
                     <br>Leave your e-mail! We'll be in touch!</div>
-                <form novalidate>
+                <form novalidate class="js-email-form">
                     <div class="input">
                         <input type="email" required>
                         <button class="btn">
@@ -227,7 +224,7 @@
                 <div class="form-block__title">Have you read to the end?
                     <br>Congratulations! You are a hero! There is just
                     <br>one step left! Subscribe!</div>
-                <form novalidate>
+                <form novalidate class="js-email-form">
                     <div class="input">
                         <input type="email" required>
                         <button class="btn">
@@ -252,7 +249,7 @@
     <div class="modal" data-modal="1">
         <div class="modal-body">
             <div class="modal-logo"><img class="modal-logo" src="img/icons/Logo_Ex2_180_180.svg"></div>
-            <form>
+            <form id="sign-in-form">
                 <div class="js-close-modal modal__close"></div>
                 <div class="modal-line-text"><span>LOG IN</span></div>
                 <div class="modal-text">Please check that you are visiting <a href="">https://www.exchange2.net</a></div>
@@ -260,11 +257,11 @@
                 <div class="modal-line-text"></div>
                 <div class="modal-label">Email</div>
                 <div class="modal-input">
-                    <input type="text" placeholder="Email">
+                    <input type="text" placeholder="Email" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
                 </div>
                 <div class="modal-label">Password</div>
                 <div class="modal-input">
-                    <input type="text" placeholder="Password">
+                    <input type="password" placeholder="Password" required maxlength="40">
                 </div>
                 <div class="modal-link">forgot password?</div>
                 <button class="btn">LOG IN</button>
@@ -276,25 +273,25 @@
         <div class="modal-body">
             <div class="js-close-modal modal__close"></div>
             <div class="modal-logo"><img class="modal-logo" src="img/icons/Logo_Ex2_180_180.svg"></div>
-            <form>
+            <form id="sign-up-form">
                 <div class="js-close-modal modal__close"></div>
                 <div class="modal-line-text"><span>Create your account now</span></div>
                 <div class="modal-label">Login</div>
                 <div class="modal-input">
-                    <input type="text" placeholder="Login">
+                    <input type="text" placeholder="Login" required  maxlength="30" pattern="[A-Za-zА-Я0-9_]{1,30}">
                 </div>
                 <div class="modal-line-text"></div>
                 <div class="modal-label">Email</div>
                 <div class="modal-input">
-                    <input type="text" placeholder="Provide an active address">
+                    <input type="text" placeholder="Provide an active address" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
                 </div>
                 <div class="modal-label">Password</div>
                 <div class="modal-input">
-                    <input type="text" placeholder="Minimum 7 characters">
+                    <input type="password" placeholder="Minimum 7 characters" required maxlength="40">
                 </div>
                 <div class="modal-label">Confirm Password</div>
                 <div class="modal-input">
-                    <input type="text" placeholder="Passwords must match">
+                    <input type="text" placeholder="Passwords must match" required maxlength="40">
                 </div>
                 <label class="modal-checkbox">
                     <input type="checkbox"> I agree with service <a href=""></a>Terms &amp; Conditions

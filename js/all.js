@@ -126,7 +126,7 @@ function isInViewport(el) {
 
 
 // (function() {
-    document.querySelectorAll('form').forEach(function(form) {
+    document.querySelectorAll('.js-email-form').forEach(function(form) {
         var messageElem = document.createElement('div');
         var input = form.querySelector('input');
         // var pattern = new RegExp(input.getAttribute('pattern'), 'ig');
@@ -164,6 +164,17 @@ function isInViewport(el) {
             // return true;
         }
     });
+
+
+    document.querySelector('#sign-in-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+    }, false);
+
+    document.querySelector('#sign-up-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+    }, false);
 }());
 
 
