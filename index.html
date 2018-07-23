@@ -30,10 +30,10 @@
                     </ul>
                     <ul class="header-menu">
                         <li class="header-menu-item">
-                            <a href="" class="js-popup" data-modal="1">LOG IN</a>
+                            <a href="" class="js-popup" data-modal="sign-in">LOG IN</a>
                         </li>
                         <li class="header-menu-item">
-                            <a href="#" class="js-popup" data-modal="2">
+                            <a href="#" class="js-popup" data-modal="sign-up">
                                 <button class="btn btn-green">REGISTER</button>
                             </a>
                         </li>
@@ -50,10 +50,10 @@
                 </ul>
                 <ul class="header-menu">
                     <li class="header-menu-item">
-                        <a href="" class="js-popup" data-modal="1">LOG IN</a>
+                        <a href="" class="js-popup" data-modal="sign-in">LOG IN</a>
                     </li>
                     <li class="header-menu-item">
-                        <a href="#" class="js-popup" data-modal="2">
+                        <a href="#" class="js-popup" data-modal="sign-up">
                             <button class="btn btn-green">REGISTER</button>
                         </a>
                     </li>
@@ -250,14 +250,15 @@
         </div>
     </footer>
     <div class="modal-overlay" id="modal-overlay"></div>
-    <div class="modal" data-modal="1">
+    <div class="modal" data-modal="sign-in">
         <div class="modal-body">
             <div class="modal-logo"><img class="modal-logo" src="img/icons/Logo_Ex2_180_180.svg"></div>
             <form id="sign-in-form">
                 <div class="js-close-modal modal__close"></div>
                 <div class="modal-line-text"><span>LOG IN</span></div>
                 <div class="modal-text">Please check that you are visiting <a href="">https://www.exchange2.net</a></div>
-                <div class="modal-input-link"><img src="img" alt=""><b>https:</b>//www.exchange2.net</div>
+                <div class="modal-input-link">
+                    <div class="modal-input-link-icon"><img src="img/padlock.svg" alt=""></div><b>https:</b>//www.exchange2.net</div>
                 <div class="modal-line-text"></div>
                 <div class="modal-label">Email</div>
                 <div class="modal-input">
@@ -269,11 +270,11 @@
                 </div>
                 <div class="modal-link">forgot password?</div>
                 <button class="btn">LOG IN</button>
-                <div class="modal-bottom-text">Not on Exchange#2 yet? <span class="modal-link js-popup" data-modal="2">register</span></div>
+                <div class="modal-bottom-text">Not on Exchange#2 yet? <span class="modal-link js-popup" data-modal="sign-up">register</span></div>
             </form>
         </div>
     </div>
-    <div class="modal" data-modal="2">
+    <div class="modal" data-modal="sign-up">
         <div class="modal-body">
             <div class="js-close-modal modal__close"></div>
             <div class="modal-logo"><img class="modal-logo" src="img/icons/Logo_Ex2_180_180.svg"></div>
@@ -298,10 +299,13 @@
                     <input type="text" placeholder="Passwords must match" required maxlength="40">
                 </div>
                 <label class="modal-checkbox">
-                    <input type="checkbox"> I agree with service <a href=""></a>Terms &amp; Conditions
+
+                    <input type="checkbox"> 
+                    <div class="modal-checkbox-icon"></div> 
+                    I agree with service <a href="">Terms &amp; Conditions</a>
                 </label>
                 <button class="btn">REGISTER</button>
-                <div class="modal-bottom-text">Already have an account?<span class="modal-link js-popup" data-modal="1">LOG IN</span></div>
+                <div class="modal-bottom-text">Already have an account?<span class="modal-link js-popup" data-modal="sign-in">LOG IN</span></div>
             </form>
         </div>
     </div>
@@ -332,9 +336,9 @@
             <div class="js-close-modal modal__close"></div>
             <div class="thank-you">
                 <div class="be-first__text">
-                    <b>Be first!</b> <br>
-                    Be the ambulant of crypto-exchange no.2 <br>
-                    and <b>get 100 tokens</b> in one click
+                    <b>Be first!</b>
+                    <br> Be the ambulant of crypto-exchange no.2
+                    <br> and <b>get 100 tokens</b> in one click
                 </div>
                 <img class="modal-img" src="img/png/hands_1.png" alt="">
                 <form novalidate class="js-email-form">
