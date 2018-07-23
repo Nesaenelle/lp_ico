@@ -209,9 +209,10 @@ header {
             width: 100%;
             &:last-child {
                 margin-top: 30px;
-                .header-menu-item:first-child {
+                .header-menu-item:last-child {
                     a {
-                        padding: 0px;
+                        padding-top: 0;
+                        // padding: 0px;
                     }
                 }
             }
