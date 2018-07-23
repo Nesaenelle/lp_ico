@@ -20,16 +20,39 @@ main {
         text-transform: uppercase;
         font-family: Helvetica;
         font-size: 18px;
-        font-weight: bold;
-        // line-height: 3.33;   
+        font-weight: bold; // line-height: 3.33;   
         letter-spacing: 4.5px;
         text-align: center;
         color: #39b54a;
     }
 }
 
-.goal {
+.big-arrow {
+    position: relative; // height: 140px;
+    background: #f1f4f8;
+    height: 250px;
+    overflow: hidden;
+    &:after {
+        border-top: 140px solid #e2e7ee;
+        border-left: 50vw solid transparent;
+        border-right: 50vw solid transparent;
+        width: 0;
+        height: 0; // bottom: -40px;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        overflow: hidden;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+}
 
+.goal {
+    height: 600px;
+    position: relative;
+    z-index: 10;
     .container {
         display: flex; // padding-bottom: 100px;
         justify-content: space-between;
@@ -88,8 +111,7 @@ main {
             $c: &;
             &:hover {
                 #{$c}_img {
-                    background-size: 100%!important;
-                    // background-position: top!important;
+                    background-size: 100%!important; // background-position: top!important;
                 }
             }
             &_img {
@@ -146,8 +168,7 @@ main {
         img {
             position: relative;
             top: 18px;
-            left: -38px;
-            // width: 100%;
+            left: -38px; // width: 100%;
         }
     }
 
@@ -194,8 +215,7 @@ main {
 }
 
 .roadmap {
-    height: 960px;
-    // background: green;
+    height: 960px; // background: green;
     background-image: linear-gradient(303deg, #273142, #39b54a);
     .container {
         padding: 40px;
@@ -232,8 +252,7 @@ main {
     &__subtitle {
         font-family: Helvetica;
         font-size: 18px;
-        font-weight: bold;
-        // line-height: 3.33;
+        font-weight: bold; // line-height: 3.33;
         letter-spacing: 4.5px;
         color: #39b54a;
         text-transform: uppercase;
@@ -268,7 +287,7 @@ main {
     }
     &__images {
         img {
-           margin-right: 54px;
+            margin-right: 54px;
         }
     }
     &__soon {
@@ -287,8 +306,7 @@ main {
     background: url(img/png/form.jpg);
     background-size: cover;
     padding: 87px 0 78px 0;
-    background-position: top center;
-    // background-position: bottom;
+    background-position: top center; // background-position: bottom;
     &.first {
         background: #e2e7ee;
         margin-top: -80px;
