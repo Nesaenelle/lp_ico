@@ -335,11 +335,25 @@
     .modal {
         display: block;
     }
-    .modal .be-first__text {
+    .modal .be-first__text,
+    .modal .thank-you__title {
         font-size: 32px;
     }
     .modal .modal-body {
         padding: 20px;
+    }
+    .modal[data-modal=thank-you] .modal-body {
+        width: 100%;
+    }
+    .modal .thank-you__text {
+        font-size: 20px;
+    }
+    .modal[data-modal=thank-you] .socials {
+        width: 100%;
+    }
+    .modal[data-modal=thank-you] .modal-body .modal-img {
+        width: 250px;
+        margin: 0 auto 20px;
     }
     .modal[data-modal=be-first] .modal-body .modal-img {
         top: -25px;
