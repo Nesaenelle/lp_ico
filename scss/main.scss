@@ -105,13 +105,13 @@ main {
     &__list {
         display: flex;
         justify-content: space-between;
-        margin-top: 95px;
+        margin-top: 107px;
         &_item {
             width: calc(100%/5);
             $c: &;
             &:hover {
                 #{$c}_img {
-                    background-size: 100%!important; // background-position: top!important;
+                    // background-size: 100%!important; // background-position: top!important;
                 }
             }
             &_img {
@@ -155,7 +155,7 @@ main {
 .why-block {
     display: flex;
     justify-content: space-between;
-    margin-top: 212px;
+    margin-top: 230px;
     padding: 0 20px;
     .title h1 {
         text-align: left;
@@ -167,13 +167,13 @@ main {
         width: 48%;
         img {
             position: relative;
-            top: 18px;
+            top: 0;
             left: -38px; // width: 100%;
         }
     }
 
     &__list {
-        margin-top: 75px;
+        margin-top: 96px;
         padding-left: 102px;
         &_item {
             margin-bottom: 32px;
@@ -204,7 +204,7 @@ main {
 .socials {
     display: flex;
     width: 750px;
-    margin: 36px auto 0;
+    margin: 54px auto 0;
     justify-content: space-between;
     &__item {
         img {
@@ -231,19 +231,19 @@ main {
 
 .follow-us {
     background-color: #f1f4f8;
-    padding-top: 94px;
+    padding-top: 114px;
     padding-bottom: 113px;
 }
 
 .accessible {
     display: flex;
-    margin-top: 104px;
+    margin-top: 124px;
     justify-content: space-between;
     &__left {
         width: 52%;
         img {
             width: 100%;
-            margin-top: 57px;
+            margin-top: 37px;
         }
     }
     &__right {
@@ -264,7 +264,7 @@ main {
         line-height: 0.95;
         letter-spacing: 0.5px;
         color: #333f52;
-        margin-top: 17px;
+        margin-top: 36px;
     }
     &__list {
         font-family: Helvetica;
@@ -309,7 +309,7 @@ main {
     background-position: top center; // background-position: bottom;
     &.first {
         background: #e2e7ee;
-        margin-top: -80px;
+        margin-top: -98px;
         .container {
             padding: 0px 152px 0 35px;
         }

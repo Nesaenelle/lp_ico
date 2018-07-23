@@ -165,6 +165,7 @@
         flex-wrap: wrap;
         &__list {
             padding-left: 0;
+            margin-top: 60px;
         }
         &__left {
             width: 100%;
@@ -210,7 +211,11 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+    .follow-us {
+        padding-bottom: 80px;
+    }
     .accessible {
+        margin-top: 100px;
         flex-wrap: wrap;
         flex-direction: column-reverse;
         &__subtitle {
@@ -220,6 +225,7 @@
             text-align: center;
         }
         &__soon {
+            margin-top: 0;
             text-align: center;
         }
         &__images {
@@ -264,8 +270,6 @@
     // .our-team__list_item {
     //     padding: 0 15   px;
     // }
-
-
     .big-arrow {
         height: 100px;
         &:after {
@@ -278,14 +282,15 @@
             width: 100%;
         }
     }
+    .follow-us {
+        padding-bottom: 50px;
+    }
     .our-team__list_item {
         width: 100%;
         &_title {
             margin-top: 25px;
         }
     }
-
-
 }
 
 @media screen and (max-width: 480px) {
@@ -305,7 +310,8 @@
     .our-team__list {
         margin-top: 20px;
     }
-    .form-block.first .container, .form-block.last .container {
+    .form-block.first .container,
+    .form-block.last .container {
         padding: 0 20px;
     }
     .why-block {
@@ -316,7 +322,7 @@
                 &_title {
                     font-size: 16px;
                 }
-                &_descr{
+                &_descr {
                     font-size: 12px;
                 }
             }
@@ -337,7 +343,6 @@
     }
     .accessible {
         margin-top: 40px;
-
     }
     .accessible__title {
         font-size: 32px;
@@ -353,14 +358,14 @@
         display: block;
         img {
             display: block;
-            margin: 30px auto 0;   
+            margin: 30px auto 0;
         }
     }
     footer .container {
         flex-wrap: wrap;
         flex-direction: column-reverse;
         .footer-socials {
-      
+
             width: 100%;
             justify-content: center;
             img {
