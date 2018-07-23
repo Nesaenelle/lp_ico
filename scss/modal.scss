@@ -157,6 +157,7 @@
             height: 40px;
             border: none;
             width: 100%;
+            border-radius: 2px;
             &::-webkit-input-placeholder {
                 opacity: 0.3;
                 font-family: Helvetica;
@@ -203,8 +204,9 @@
         font-family: Helvetica;
         font-size: 14px;
         font-weight: bold;
-
+        border: none;
         letter-spacing: 0.4px;
+        border-radius: 4px;
         text-align: center;
         color: #ffffff;
     }
@@ -341,6 +343,9 @@
     }
     .modal[data-modal=be-first] .modal-body .modal-img {
         top: -25px;
+    }
+    .modal-input {
+        margin-bottom: 15px;
     }
     .modal-body form {
         width: 100%!important;

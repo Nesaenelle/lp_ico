@@ -207,6 +207,14 @@ header {
         .header-menu {
             display: block;
             width: 100%;
+            &:last-child {
+                margin-top: 30px;
+                .header-menu-item:first-child {
+                    a {
+                        padding: 0px;
+                    }
+                }
+            }
             &-item {
                 width: 100%;
                 margin: 0!important;
