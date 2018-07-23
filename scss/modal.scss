@@ -27,6 +27,24 @@
     &[data-modal="login"] {
         .modal-body {}
     }
+    &[data-modal="be-first"] {
+        .modal-body {
+            padding: 40px 40px 40px;
+            .modal-img {
+                position: relative;
+                top: -55px;
+                width: 100%;
+            }
+            form {
+                margin: 0px auto 0;
+                width: 508px;
+                padding: 0;
+                .input {
+                    align-items: center;
+                }
+            }
+        }
+    }
     &[data-modal="thank-you"] {
         .modal-body {
             width: 1000px;
@@ -94,7 +112,7 @@
         }
         &:before {
             height: 2px;
-            background:#e5edf3;
+            background: #e5edf3;
             content: '';
             position: absolute;
             width: 100%;
@@ -283,6 +301,18 @@
             color: #516173;
         }
     }
+    .be-first {
+        &__text {
+            font-family: BebasNeue;
+            font-size: 48px;
+            line-height: 1.13;
+            letter-spacing: .5px;
+            text-align: center;
+            b {
+                color: #39b54a;
+            }
+        }
+    }
 }
 
 @media screen and (max-width:980px) {
@@ -300,39 +330,31 @@
 }
 
 @media screen and (max-width: 600px) {
-//     .modal {
-//         padding: 70px 50px;
-//         max-height: 602px;
-//         .sign-up__form_title {
-//             &:before {
-//                 top: -10px;
-//             }
-//             h1 {
-//                 font-size: 26px;
-//                 line-height: 1.5em;
-//             }
-//         }
-//         .sign-up__form_input {
-//             width: 100%;
-//         }
-//         .btn {
-//             display: block;
-//             margin: 40px auto 0;
-//             padding: 27px 30px;
-//         }
-//     }
- .modal-body form {
-    width: 100%;
- }
- .modal-body {
-    width: 100%;
- }
+    .modal {
+        display: block;
+    }
+    .modal .be-first__text {
+        font-size: 32px;
+    }
+    .modal .modal-body {
+        padding: 20px;
+    }
+    .modal[data-modal=be-first] .modal-body .modal-img {
+        top: -25px;
+    }
+    .modal-body form {
+        width: 100%!important;
+        .input {
+            width: 100%;
+        }
+    }
+    .modal-body {
+        width: 100%;
+        height: 100%;
+    }
 }
-// @media screen and (max-width: 550px) {
-//     .modal {
-//         max-height: 640px;
-//     }
-// }
+
+
 @media screen and (max-width: 480px) {
     .modal {
         &-body {
