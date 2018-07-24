@@ -109,6 +109,10 @@
                 width: 3px;
                 height: 1000px;
                 margin: auto;
+                &_inner {
+                    width: 10px;
+                    left: -4px;
+                }
             }
             &__points {
                 flex-wrap: wrap;
@@ -124,15 +128,15 @@
                         transform: scale(1);
                         opacity: 1;
                     }
-                    .roadmap-canvas__point_circle {
-                        width: 50px;
-                        height: 50px;
-                        top: -13px; // left: -12px;
-                        &:after {
-                            width: 34px;
-                            height: 34px;
-                        }
-                    }
+                    // .roadmap-canvas__point_circle {
+                    //     width: 50px;
+                    //     height: 50px;
+                    //     top: -13px; // left: -12px;
+                    //     &:after {
+                    //         width: 34px;
+                    //         height: 34px;
+                    //     }
+                    // }
                 }
 
                 &:nth-child(odd) .roadmap-canvas__text {

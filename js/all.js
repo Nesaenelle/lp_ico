@@ -227,7 +227,7 @@ function isInViewport(el) {
         points.forEach(function(item) {
             item.classList.remove('active');
         });
-
+console.log(step);
         for (var i = 0; i < step; i++) {
             points[i].classList.add('active');
         }
@@ -236,17 +236,18 @@ function isInViewport(el) {
     resize();
     window.addEventListener('scroll', function() {
         if (window.innerWidth >= 1280) {
-            updateCanvas();
-        }
-
-        elements.forEach(function(elem, index) {
-            if (isInViewport(elem, 200)) {
-                if (!elem.getAttribute('data-animate')) {
-                    elem.setAttribute('data-animate', true);
+            updateDesktopCanvas();
+        } else {        
+            elements.forEach(function(elem, index) {
+                if (isScrolledIntoView(elem, 500)) {
+                    if (!elem.getAttribute('data-animate')) {
+                        elem.setAttribute('data-animate', true);
+                    }
                 }
-            }
-        });
+            });
 
+            updateMobileCanvas();
+        }
     }, false);
 
     window.addEventListener('resize', function() {
@@ -255,7 +256,7 @@ function isInViewport(el) {
 
     function resize() {
         if (window.innerWidth >= 1280) {
-            updateCanvas();
+            updateDesktopCanvas();
         } else {
             roadmap.classList.remove('fixed');
             dummyStart.style.display = 'none';
@@ -267,11 +268,11 @@ function isInViewport(el) {
         return Math.round(num * 100) / 100;
     }
 
-    function updateCanvas() {
+    function updateDesktopCanvas() {
         var value = Math.abs(offsetTop - window.pageYOffset);
         value = Math.floor((value / totalHeight) * 100);
         step = Math.ceil((pointCount / 100) * value);
-        // console.log(value, step);
+
         if (offsetTop <= window.pageYOffset && (offsetTop + totalHeight) > window.pageYOffset) {
             redraw(step);
             if (value >= 99) {
@@ -294,6 +295,21 @@ function isInViewport(el) {
             roadmap.classList.remove('fixed');
             dummyStart.style.display = 'none';
             dummyEnd.style.display = 'block';
+        }
+    }
+
+    function updateMobileCanvas() {
+        var winOffset = window.pageYOffset + 300;
+        var value = Math.abs(offsetTop - winOffset);
+        value = Math.floor((value / (roadmap.clientHeight)) * 100);
+        step = Math.ceil((7 / 100) * value);
+        if (offsetTop <= winOffset && (offsetTop + roadmap.clientHeight) > winOffset) {
+            redraw(step);
+            if (value >= 90) {
+                value = 101;
+                redraw(step > 7 ? 7 : step);
+            }
+            innerLine.style.height = value + '%';
         }
     }
 
