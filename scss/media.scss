@@ -566,4 +566,11 @@
             text-align: center;
         }
     }
+
+    .roadmap-canvas__point:nth-child(even) .roadmap-canvas__text {
+        // right: px;
+    }
+    .roadmap-canvas__text {
+        margin-left: -155px;
+    }
 }

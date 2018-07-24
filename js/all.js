@@ -167,7 +167,7 @@ function isInViewport(el) {
 
     document.querySelector('#sign-in-form').addEventListener('submit', function(e) {
         e.preventDefault();
-
+        
     }, false);
 
     document.querySelector('#sign-up-form').addEventListener('submit', function(e) {
