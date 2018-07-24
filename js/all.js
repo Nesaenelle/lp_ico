@@ -63,7 +63,7 @@ function isInViewport(el) {
         var elem = document.querySelector('[data-navigation="' + id + '"]');
         var topOffset = this.getAttribute('data-navigation-offset') || 200;
         if (elem) {
-            console.log(offset(elem).top - topOffset);
+            // console.log(offset(elem).top - topOffset);
             body.stop().animate({ scrollTop: offset(elem).top - topOffset }, 500);
         }
 
@@ -122,10 +122,10 @@ function isInViewport(el) {
         activeModal.classList.add('opened');
     }
 
-// }());
+    // }());
 
 
-// (function() {
+    // (function() {
     document.querySelectorAll('.js-email-form').forEach(function(form) {
         var messageElem = document.createElement('div');
         var input = form.querySelector('input');
@@ -137,7 +137,7 @@ function isInViewport(el) {
             input.focus();
             InvalidMsg();
 
-            if (pattern.test(input.value)) { 
+            if (pattern.test(input.value)) {
                 openModal('thank-you');
             }
         };
@@ -173,7 +173,7 @@ function isInViewport(el) {
 
     document.querySelector('#sign-up-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
     }, false);
 }());
 
@@ -193,7 +193,7 @@ function isInViewport(el) {
 
     }, false);
 
-    closeBtn.addEventListener('click', function(e) { 
+    closeBtn.addEventListener('click', function(e) {
         burger.classList.remove('active');
     });
 
@@ -202,5 +202,73 @@ function isInViewport(el) {
             burger.classList.remove('active');
         }
     }, false);
+
+}());
+
+
+
+(function() {
+    var roadmap = document.querySelector('.roadmap');
+    var dummyStart = document.querySelector('.dummy-box-start');
+    var dummyEnd = document.querySelector('.dummy-box-end');
+    var innerLine = document.querySelector('.roadmap-canvas__line_inner');
+    var points = document.querySelectorAll('.roadmap-canvas__point');
+    var totalHeight = 10000;
+    var offsetTop = offset(roadmap).top;
+    var step = 0;
+    var pointCount = 6;
+
+    dummyStart.style.height = totalHeight + 'px';
+    dummyEnd.style.height = totalHeight + 'px';
+
+    function redraw(step) {
+        points.forEach(function(item) {
+            item.classList.remove('active');
+        });
+
+        for (var i = 0; i < step; i++) {
+            points[i].classList.add('active');
+        }
+    }
+
+    updateCanvas();
+    window.addEventListener('scroll', function() {
+        updateCanvas();
+    }, false);
+
+    function round(num) {
+        return Math.round(num * 100) / 100;
+    }
+
+    function updateCanvas() {
+        var value = Math.abs(offsetTop - window.pageYOffset);
+        value = Math.floor((value / totalHeight) * 100);
+        step = Math.ceil((pointCount / 100) * value);
+        // console.log(value, step);
+        if (offsetTop <= window.pageYOffset && (offsetTop + totalHeight) > window.pageYOffset) {
+            redraw(step);
+            if(value >= 99) {
+                value = 100;
+                redraw(7);
+            }
+            roadmap.classList.add('fixed');
+            dummyStart.style.display = 'none';
+            dummyEnd.style.display = 'block';
+            innerLine.style.width = value + '%';
+        }
+        if ((offsetTop + totalHeight) < window.pageYOffset) {
+            
+            roadmap.classList.remove('fixed');
+            dummyStart.style.display = 'block';
+            dummyEnd.style.display = 'none';
+        }
+
+        if (offsetTop >= window.pageYOffset) {
+            roadmap.classList.remove('fixed');
+            dummyStart.style.display = 'none';
+            dummyEnd.style.display = 'block';
+        }
+    }
+
 
 }());

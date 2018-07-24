@@ -215,10 +215,22 @@ main {
 }
 
 .roadmap {
-    height: 960px; // background: green;
-    background-image: linear-gradient(303deg, #273142, #39b54a);
+    // height: 960px; // background: green;
+    height: 100vh; // background-image: linear-gradient(303deg, #273142, #39b54a);
+    // background: linear-gradient(135deg, rgba(52,146,72,1) 0%, rgba(39,49,66,1) 100%);
+    background: linear-gradient(135deg, rgba(52, 146, 72, 1) 0%, rgba(39, 49, 66, 1) 83%, rgba(39, 49, 66, 1) 100%);
+    overflow: hidden;
+    &.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
     .container {
+        position: relative;
         padding: 40px;
+        height: 100%;
     }
     &__title {
         text-align: center;
@@ -226,6 +238,184 @@ main {
         font-family: BebasNeue;
         font-size: 20px;
         letter-spacing: 4px;
+    }
+    &-canvas {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding:  0 10%;
+        height: 10px; // &__list {}
+        &__text {
+            color: #fff;
+            position: absolute;
+            width: 305px;
+            font-size: 20px;
+            margin-left: -150px;
+            transform: scale(0);
+            opacity: 0;
+            transition: 0.5s;
+            line-height: 1.5em;
+            font-family: Helvetica;
+            br {
+                // display: none;
+            }
+        }
+        &__month {
+            text-transform: uppercase;
+            color: #abbdb4;
+            font-weight: 600;
+            position: absolute;
+            white-space: nowrap;
+            width: 180px;
+            font-size: 20px;
+            margin-left: -76px;
+            text-align: center;
+            transform: scale(0);
+            opacity: 0;
+            font-family: Helvetica;
+            transition: 0.5s;
+        }
+        &__points {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: -12px;
+            // padding: 0 10%;
+            width: 100%;
+        }
+        &__point {
+            width: 50px;
+            // height: 50px;
+            &_circle {
+                position: relative;
+                width: 26px;
+                height: 26px;
+                border-radius: 100%; // background: #fff;
+                border: 3px solid #fff;
+                box-shadow: 0 0 4px 0px #fff; // &:before {
+                margin: auto; // transition: 0.3s;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 100%;
+                    margin: auto;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background: #fff;
+                    box-shadow: 0 0 4px 0px #fff;
+                }
+            }
+            &.activated {
+
+                .roadmap-canvas__point_circle {
+                    background: #fff;
+                }
+            }
+
+            &.active {
+                .roadmap-canvas__point_circle {
+                    width: 50px;
+                    height: 50px;
+                    top: -13px; // left: -12px;
+                    &:after {
+                        width: 34px;
+                        height: 34px;
+                    }
+                }
+                .roadmap-canvas__text,
+                .roadmap-canvas__month {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+            &:nth-child(1) .roadmap-canvas__month {
+                top: 50px;
+            }
+            &:nth-child(2) .roadmap-canvas__month {
+                top: -50px;
+            }
+            &:nth-child(3) .roadmap-canvas__month {
+                top: 50px;
+            }
+            &:nth-child(4) .roadmap-canvas__month {
+                top: -50px;
+            }
+            &:nth-child(5) .roadmap-canvas__month {
+                top: 50px;
+            }
+            &:nth-child(6) .roadmap-canvas__month {
+                top: -50px;
+            }
+            &:nth-child(7) .roadmap-canvas__month {
+                top: 50px;
+            }
+
+            &:nth-child(1) .roadmap-canvas__text {
+
+                top: -160px;
+            }
+            &:nth-child(2) .roadmap-canvas__text {
+
+                top: 160px;
+                text-align: right;
+            }
+            &:nth-child(3) .roadmap-canvas__text {
+
+                top: -160px;
+            }
+            &:nth-child(4) .roadmap-canvas__text {
+
+                top: 160px;
+                text-align: right;
+            }
+            &:nth-child(5) .roadmap-canvas__text {
+
+                top: -160px;
+            }
+            &:nth-child(6) .roadmap-canvas__text {
+
+                top: 160px;
+                text-align: right;
+            }
+            &:nth-child(7) .roadmap-canvas__text {
+
+                top: -160px;
+            }
+        }
+        &__line {
+            height: 3px;
+            width: 100%;
+            background: #769885;
+            position: relative;
+            &_inner {
+                // transition: 0.3s;
+                width: 0%;
+                height: 7px;
+                top: -2px;
+                position: absolute;
+                background: #fff;
+                box-shadow: 0 3px 15px 0 #fff;
+                z-index: 3;
+                border-radius: 4px;
+                // &:before {
+                //     content: '';
+                //     position: absolute;
+                //     left: -42px;
+                //     top: 0;
+                //     height: 7px;
+                //     width: 42px;
+                //     box-shadow: 0 3px 15px 0 #fff;
+                //     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, #fff 100%);
+                // }
+            }
+        }
     }
 }
 
