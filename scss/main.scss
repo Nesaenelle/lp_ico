@@ -246,7 +246,7 @@ main {
         top: 0;
         bottom: 0;
         margin: auto;
-        padding:  0 5%;
+        padding: 0 5%;
         height: 10px;
         &__text {
             color: #fff;
@@ -275,17 +275,54 @@ main {
             font-family: Helvetica;
             transition: 1s;
         }
+
+        &__arrow {
+            opacity: 0;
+            transform: scale(0);
+            transition: 1s;
+            content: '';
+            border-left: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            width: 170px;
+            height: 100px;
+            top: -180px;
+            left: -170px;
+            border-radius: 0 0 0 20px;
+            position: absolute;
+            &:before {
+                content: '';
+                background: #fff;
+                border-radius: 100%;
+                width: 10px;
+                height: 10px;
+                left: -6px;
+                position: absolute;
+                transition: 1s;
+            }
+            &:after {
+                content: '';
+                border-top: 2px solid #fff;
+                border-right: 2px solid #fff;
+                width: 42px;
+                height: 70px;
+                top: 98px;
+                left: 150px;
+                border-radius: 0px 20px 0 20px;
+                position: absolute;
+                transition: 1s;
+            }
+        }
         &__points {
             display: flex;
             justify-content: space-between;
             position: absolute;
-            top: -12px;
-            // padding: 0 10%;
+            top: -12px; // padding: 0 10%;
             width: 100%;
         }
         &__point {
             width: 50px;
             height: 50px;
+            position: relative;
             &_circle {
                 position: relative;
                 width: 26px;
@@ -293,7 +330,7 @@ main {
                 border-radius: 100%; // background: #fff;
                 border: 3px solid #fff;
                 box-shadow: 0 0 4px 0px #fff; // &:before {
-                margin: auto; 
+                margin: auto;
                 transition: 0.5s;
                 top: 0;
                 &:after {
@@ -330,64 +367,42 @@ main {
                     }
                 }
                 .roadmap-canvas__text,
-                .roadmap-canvas__month {
+                .roadmap-canvas__month,
+                .roadmap-canvas__arrow {
                     transform: scale(1);
                     opacity: 1;
                 }
             }
 
-            &:nth-child(1) .roadmap-canvas__month {
+            &:nth-child(odd) .roadmap-canvas__month {
                 top: 50px;
             }
-            &:nth-child(2) .roadmap-canvas__month {
+            &:nth-child(even) .roadmap-canvas__month {
                 top: -50px;
             }
-            &:nth-child(3) .roadmap-canvas__month {
-                top: 50px;
-            }
-            &:nth-child(4) .roadmap-canvas__month {
-                top: -50px;
-            }
-            &:nth-child(5) .roadmap-canvas__month {
-                top: 50px;
-            }
-            &:nth-child(6) .roadmap-canvas__month {
-                top: -50px;
-            }
-            &:nth-child(7) .roadmap-canvas__month {
-                top: 50px;
-            }
 
-            &:nth-child(1) .roadmap-canvas__text {
-
-                top: -160px;
+            &:nth-child(odd) .roadmap-canvas__text {
+                top: -210px;
             }
-            &:nth-child(2) .roadmap-canvas__text {
-
-                top: 160px;
+            &:nth-child(even) .roadmap-canvas__text {
+                top: 180px;
                 text-align: right;
             }
-            &:nth-child(3) .roadmap-canvas__text {
 
-                top: -160px;
-            }
-            &:nth-child(4) .roadmap-canvas__text {
 
-                top: 160px;
-                text-align: right;
-            }
-            &:nth-child(5) .roadmap-canvas__text {
-
-                top: -160px;
-            }
-            &:nth-child(6) .roadmap-canvas__text {
-
-                top: 160px;
-                text-align: right;
-            }
-            &:nth-child(7) .roadmap-canvas__text {
-
-                top: -160px;
+            &:nth-child(odd) .roadmap-canvas__arrow {}
+            &:nth-child(even) .roadmap-canvas__arrow {
+                top: 35px;
+                left: 24px;
+                height: 70px;
+                &:after {
+                    height: 100px;
+                    top: 68px;
+                }
+                &:before {
+                    top: 166px;
+                    left: 188px;
+                }
             }
         }
         &__line {
@@ -404,8 +419,7 @@ main {
                 background: #fff;
                 box-shadow: 0 3px 15px 0 #fff;
                 z-index: 3;
-                border-radius: 4px;
-                // &:before {
+                border-radius: 4px; // &:before {
                 //     content: '';
                 //     position: absolute;
                 //     left: -42px;

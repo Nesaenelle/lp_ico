@@ -63,7 +63,6 @@ function isInViewport(el) {
         var elem = document.querySelector('[data-navigation="' + id + '"]');
         var topOffset = this.getAttribute('data-navigation-offset') || 200;
         if (elem) {
-            // console.log(offset(elem).top - topOffset);
             body.stop().animate({ scrollTop: offset(elem).top - topOffset }, 500);
         }
 
@@ -217,8 +216,6 @@ function isInViewport(el) {
     var offsetTop = offset(roadmap).top;
     var step = 0;
     var pointCount = 6;
-    var elements = document.querySelectorAll('[data-animate]');
-    elements = Array.prototype.slice.call(elements);
 
     dummyStart.style.height = totalHeight + 'px';
     dummyEnd.style.height = totalHeight + 'px';
@@ -227,7 +224,7 @@ function isInViewport(el) {
         points.forEach(function(item) {
             item.classList.remove('active');
         });
-console.log(step);
+
         for (var i = 0; i < step; i++) {
             points[i].classList.add('active');
         }
@@ -237,15 +234,7 @@ console.log(step);
     window.addEventListener('scroll', function() {
         if (window.innerWidth >= 1280) {
             updateDesktopCanvas();
-        } else {        
-            elements.forEach(function(elem, index) {
-                if (isScrolledIntoView(elem, 500)) {
-                    if (!elem.getAttribute('data-animate')) {
-                        elem.setAttribute('data-animate', true);
-                    }
-                }
-            });
-
+        } else {
             updateMobileCanvas();
         }
     }, false);
@@ -275,7 +264,10 @@ console.log(step);
 
         if (offsetTop <= window.pageYOffset && (offsetTop + totalHeight) > window.pageYOffset) {
             redraw(step);
-            if (value >= 99) {
+            if (value <= 2) {
+                redraw(0);
+            }
+            if (value >= 96) {
                 value = 100;
                 redraw(7);
             }
