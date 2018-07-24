@@ -208,17 +208,13 @@ function isInViewport(el) {
 
 (function() {
     var roadmap = document.querySelector('.roadmap');
-    var dummyStart = document.querySelector('.dummy-box-start');
-    var dummyEnd = document.querySelector('.dummy-box-end');
+
     var innerLine = document.querySelector('.roadmap-canvas__line_inner');
     var points = document.querySelectorAll('.roadmap-canvas__point');
     var totalHeight = 5000;
     var offsetTop = offset(roadmap).top;
     var step = 0;
     var pointCount = 6;
-
-    dummyStart.style.height = totalHeight + 'px';
-    dummyEnd.style.height = totalHeight + 'px';
 
     function redraw(step) {
         points.forEach(function(item) {
@@ -249,10 +245,10 @@ function isInViewport(el) {
             updateDesktopCanvas();
         } else {
             roadmap.classList.remove('fixed');
-            dummyStart.style.display = 'none';
-            dummyEnd.style.display = 'none';
             innerLine.style.width = "";
             offsetTop = offset(roadmap).top;
+            roadmap.style.paddingBottom = '';
+            roadmap.style.paddingTop= '';
             updateMobileCanvas();
         }
     }
@@ -276,21 +272,20 @@ function isInViewport(el) {
                 redraw(7);
             }
             roadmap.classList.add('fixed');
-            dummyStart.style.display = 'none';
-            dummyEnd.style.display = 'block';
+            roadmap.style.paddingTop = '';
+            roadmap.style.paddingBottom = totalHeight + 'px';
             innerLine.style.width = value + '%';
         }
         if ((offsetTop + totalHeight) < window.pageYOffset) {
-
             roadmap.classList.remove('fixed');
-            dummyStart.style.display = 'block';
-            dummyEnd.style.display = 'none';
+            roadmap.style.paddingTop = totalHeight + 'px';
+            roadmap.style.paddingBottom = '';
         }
 
         if (offsetTop >= window.pageYOffset) {
             roadmap.classList.remove('fixed');
-            dummyStart.style.display = 'none';
-            dummyEnd.style.display = 'block';
+            roadmap.style.paddingTop = '';
+            roadmap.style.paddingBottom = totalHeight + 'px';
         }
     }
 

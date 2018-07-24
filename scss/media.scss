@@ -99,6 +99,8 @@
         height: 1300px;
         .container {
             padding: 40px 0;
+            min-height: auto;
+            height: 100%;
         }
         &-canvas {
             margin: 0;
