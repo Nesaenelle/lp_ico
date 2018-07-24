@@ -245,11 +245,15 @@ function isInViewport(el) {
 
     function resize() {
         if (window.innerWidth >= 1280) {
+            innerLine.style.height = "";
             updateDesktopCanvas();
         } else {
             roadmap.classList.remove('fixed');
             dummyStart.style.display = 'none';
             dummyEnd.style.display = 'none';
+            innerLine.style.width = "";
+            offsetTop = offset(roadmap).top;
+            updateMobileCanvas();
         }
     }
 
