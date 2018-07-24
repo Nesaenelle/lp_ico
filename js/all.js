@@ -219,10 +219,14 @@ function isInViewport(el) {
     function redraw(step) {
         points.forEach(function(item) {
             item.classList.remove('active');
+            item.classList.remove('activated');
         });
 
         for (var i = 0; i < step; i++) {
             points[i].classList.add('active');
+            if(points[i - 1]) {
+                points[i - 1].classList.add('activated')
+            }
         }
     }
 

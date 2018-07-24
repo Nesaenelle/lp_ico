@@ -215,10 +215,8 @@ main {
 }
 
 .roadmap {
-    box-sizing: content-box;
-    // min-height: 100vh;
-    height: 100vh;
-    // overflow: hidden;
+    box-sizing: content-box; // min-height: 100vh;
+    height: 100vh; // overflow: hidden;
     &.fixed {
         .container {
             top: 0;
@@ -230,10 +228,9 @@ main {
     }
     .container {
         background: linear-gradient(135deg, rgba(52, 146, 72, 1) 0%, rgba(39, 49, 66, 1) 83%, rgba(39, 49, 66, 1) 100%);
-        min-height: 100vh; 
+        min-height: 100vh;
         position: relative;
-        padding: 40px 0;
-        // height: 100%;
+        padding: 40px 0; // height: 100%;
         max-width: 100%;
     }
     &__title {
@@ -244,15 +241,14 @@ main {
         letter-spacing: 4px;
     }
     &-canvas {
-        max-width: 1585px;
+        max-width: 1385px;
         margin: auto;
         position: absolute;
         width: 100%;
         top: 0;
-        bottom: 0;
-        // margin: auto;
+        bottom: 0; // margin: auto;
         right: 0;
-            left: 0;
+        left: 0;
         padding: 0 5%;
         height: 10px;
         &__text {
@@ -311,7 +307,7 @@ main {
                 border-top: 2px solid #fff;
                 border-right: 2px solid #fff;
                 width: 42px;
-                height: 70px;
+                height: 80px;
                 top: 98px;
                 left: 150px;
                 border-radius: 0px 20px 0 20px;
@@ -356,12 +352,7 @@ main {
                     transition: 0.5s;
                 }
             }
-            &.activated {
 
-                .roadmap-canvas__point_circle {
-                    background: #fff;
-                }
-            }
 
             &.active {
                 .roadmap-canvas__point_circle {
@@ -378,6 +369,18 @@ main {
                 .roadmap-canvas__arrow {
                     transform: scale(1);
                     opacity: 1;
+                }
+            }
+
+            &.activated {
+                .roadmap-canvas__point_circle {
+                    background: #fff;
+                    width: 26px;
+                    height: 26px;
+                    top: 0;
+                    &:after {
+                        opacity: 0;
+                    }
                 }
             }
 
@@ -399,15 +402,15 @@ main {
 
             &:nth-child(odd) .roadmap-canvas__arrow {}
             &:nth-child(even) .roadmap-canvas__arrow {
-                top: 35px;
+                top: 26px;
                 left: 24px;
-                height: 70px;
+                height: 80px;
                 &:after {
                     height: 100px;
-                    top: 68px;
+                    top: 78px;
                 }
                 &:before {
-                    top: 166px;
+                    top: 172px;
                     left: 188px;
                 }
             }
