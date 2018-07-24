@@ -386,25 +386,29 @@
 
 
     .roadmap {
+        height: 1250px;
         &-canvas {
             $c: &;
             &__text {
-                font-size: 14px;
+                font-size: 13px;
+                br {
+                    display: none;
+                }
             }
 
             &__month {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             &__point {
                 &:nth-child(odd) .roadmap-canvas__text {
 
-                    width: 150px;
+                    width: 140px;
                     left: 210px;
                     top: -10px;
                 }
                 &:nth-child(even) .roadmap-canvas__text {
-                    width: 150px;
+                    width: 140px;
                     top: -10px;
                     right: 60px;
                 }

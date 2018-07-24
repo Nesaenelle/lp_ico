@@ -213,7 +213,7 @@ function isInViewport(el) {
     var dummyEnd = document.querySelector('.dummy-box-end');
     var innerLine = document.querySelector('.roadmap-canvas__line_inner');
     var points = document.querySelectorAll('.roadmap-canvas__point');
-    var totalHeight = 10000;
+    var totalHeight = 5000;
     var offsetTop = offset(roadmap).top;
     var step = 0;
     var pointCount = 6;
