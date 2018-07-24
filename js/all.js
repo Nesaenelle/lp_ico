@@ -217,6 +217,8 @@ function isInViewport(el) {
     var offsetTop = offset(roadmap).top;
     var step = 0;
     var pointCount = 6;
+    var elements = document.querySelectorAll('[data-animate]');
+    elements = Array.prototype.slice.call(elements);
 
     dummyStart.style.height = totalHeight + 'px';
     dummyEnd.style.height = totalHeight + 'px';
@@ -231,10 +233,35 @@ function isInViewport(el) {
         }
     }
 
-    updateCanvas();
+    resize();
     window.addEventListener('scroll', function() {
-        updateCanvas();
+        if (window.innerWidth >= 1280) {
+            updateCanvas();
+        }
+
+        elements.forEach(function(elem, index) {
+            if (isInViewport(elem, 200)) {
+                if (!elem.getAttribute('data-animate')) {
+                    elem.setAttribute('data-animate', true);
+                }
+            }
+        });
+
     }, false);
+
+    window.addEventListener('resize', function() {
+        resize();
+    }, false);
+
+    function resize() {
+        if (window.innerWidth >= 1280) {
+            updateCanvas();
+        } else {
+            roadmap.classList.remove('fixed');
+            dummyStart.style.display = 'none';
+            dummyEnd.style.display = 'none';
+        }
+    }
 
     function round(num) {
         return Math.round(num * 100) / 100;
@@ -247,7 +274,7 @@ function isInViewport(el) {
         // console.log(value, step);
         if (offsetTop <= window.pageYOffset && (offsetTop + totalHeight) > window.pageYOffset) {
             redraw(step);
-            if(value >= 99) {
+            if (value >= 99) {
                 value = 100;
                 redraw(7);
             }
@@ -257,7 +284,7 @@ function isInViewport(el) {
             innerLine.style.width = value + '%';
         }
         if ((offsetTop + totalHeight) < window.pageYOffset) {
-            
+
             roadmap.classList.remove('fixed');
             dummyStart.style.display = 'block';
             dummyEnd.style.display = 'none';
