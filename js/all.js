@@ -33,8 +33,13 @@ function isInViewport(el) {
     );
 };
 
+
+var ModalClass = {};
+
 (function() {
     var tabs = document.querySelectorAll('[data-navigation]');
+    var socilasBlock = document.querySelector('.follow-us');
+    var showSocialsModal = false;
 
     window.addEventListener('scroll', function() {
         tabs.forEach(function(elem) {
@@ -52,6 +57,11 @@ function isInViewport(el) {
                 });
             }
         });
+
+        if(!showSocialsModal && isScrolledIntoView(socilasBlock, 2)) {
+            ModalClass.openModal('be-first');
+            showSocialsModal = true;
+        }
     }, false);
 
 
@@ -128,8 +138,7 @@ function isInViewport(el) {
 
     window.addEventListener('click', function(e) {
         if (activeModal && !activeModal.querySelector('.modal-body').contains(e.target)) {
-            activeModal.classList.remove('opened');
-            modalOverlay.classList.remove('opened')
+            closeModal();
         }
     }, false);
 
@@ -138,6 +147,7 @@ function isInViewport(el) {
         if (activeModal) {
             activeModal.classList.remove('opened');
             modalOverlay.classList.remove('opened');
+            document.body.style.overflow = '';
         }
     }
 
@@ -146,7 +156,11 @@ function isInViewport(el) {
         modalOverlay.classList.add('opened');
         activeModal = document.querySelector('.modal[data-modal="' + id + '"]');
         activeModal.classList.add('opened');
+        document.body.style.overflow = 'hidden';
     }
+
+    ModalClass.closeModal = closeModal;
+    ModalClass.openModal = openModal;
 
 
     function Form(form) {
@@ -278,10 +292,6 @@ function isInViewport(el) {
         var formInst = new Form(form);
     });
 
-/*}());
-
-
-(function() {*/
 
 }());
 
