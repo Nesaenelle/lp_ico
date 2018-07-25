@@ -121,59 +121,128 @@ function isInViewport(el) {
         activeModal.classList.add('opened');
     }
 
-    // }());
 
+    function Form(form) {
+        var self = this;
+        this.controls = [];
+        this.form = form;
 
-    // (function() {
-    document.querySelectorAll('.js-email-form').forEach(function(form) {
-        var messageElem = document.createElement('div');
-        var input = form.querySelector('input');
-        // var pattern = new RegExp(input.getAttribute('pattern'), 'ig');
-        var pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        form.querySelectorAll('input').forEach(function(input) {
+            self.controls.push(new Input(input, self));
+        });
 
         form.onsubmit = function(e) {
             e.preventDefault();
-            input.focus();
-            InvalidMsg();
+            var focusState = false;
 
-            if (pattern.test(input.value)) {
+            self.controls.forEach(function(ctrl) {
+                if (!focusState) {
+                    ctrl.input.focus();
+                    if (!ctrl.validate()) {
+                        focusState = true;
+                    }
+                }
+            });
+
+            var errors = self.controls.reduce(function(a, b) {
+                b = b.valid ? 0 : 1;
+                return a + b;
+            }, 0);
+
+            if (errors === 0) {
                 openModal('thank-you');
+                self.controls.forEach(function(ctrl) {
+                    ctrl.input.value = '';
+                })
             }
         };
+    };
 
+    Form.prototype.validate = function() {
+        this.controls.forEach(function(ctrl) {
+            ctrl.validate()
+        });
+    };
+
+    ////
+    function Input(input, parent) {
+        var self = this;
+        this.parent = parent;
+        this.msg = document.createElement('div');
+        this.pattern = getPattern(input.getAttribute('data-pattern'));
+        this.input = input;
+        this.valid = false;
+        this.value = input.value;
         input.oninput = function() {
-            InvalidMsg();
+            self.value = this.type === 'checkbox' ? this.checked : this.value;
+            self.parent.validate();
         };
+    }
 
-        function InvalidMsg() {
-            if (pattern.test(input.value)) {
-                input.classList.add('valid');
-                input.classList.remove('invalid');
-                messageElem.className = 'input-msg valid';
-                messageElem.innerHTML = 'This is correct email';
-                input.parentNode.appendChild(messageElem);
+    Input.prototype.validate = function() {
+        if (this.input.getAttribute('data-pass-confirm')) {
+            if (this.input.value === this.parent.form.querySelector('[data-pattern="password"]').value) {
+                this.removeError();
             } else {
-                input.classList.add('invalid');
-                input.classList.remove('valid');
-                messageElem.className = 'input-msg invalid';
-                messageElem.innerHTML = 'Enter the correct email';
-                input.parentNode.appendChild(messageElem);
-
+                this.addError();
             }
-            // return true;
+        } else {
+            if ((this.input.type === 'text' || this.input.type === 'password') && this.pattern.test(this.input.value) || this.input.checked) {
+                this.removeError();
+            } else {
+                this.addError();
+            }
         }
+
+        return this.valid;
+    };
+
+    Input.prototype.addError = function() {
+        this.input.classList.add('invalid');
+        this.input.classList.remove('valid');
+        this.msg.className = 'input-msg invalid';
+        this.msg.innerHTML = 'Enter the correct email';
+        this.input.parentNode.appendChild(this.msg);
+        this.valid = false;
+    }
+
+    Input.prototype.removeError = function() {
+        this.input.classList.add('valid');
+        this.input.classList.remove('invalid');
+        this.msg.className = 'input-msg valid';
+        this.msg.innerHTML = 'This is correct email';
+        this.input.parentNode.appendChild(this.msg);
+        this.valid = true;
+    };
+
+    function getPattern(o) {
+        var pattern;
+        switch (o) {
+            case 'email':
+                pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                break;
+
+            case 'login':
+                pattern = /^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\d.-]{0,19}$/;
+                break;
+
+            case 'password':
+                pattern = /^(?=.*[a-zA-Z0-9])(?=.*).{7,40}$/;
+                break;
+
+            case 'checkbox':
+                pattern = /^on$/;
+                break;
+        }
+
+        return pattern;
+    }
+
+
+    document.querySelectorAll('form').forEach(function(form) {
+        var formInst = new Form(form);
     });
 
-
-    document.querySelector('#sign-in-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-    }, false);
-
-    document.querySelector('#sign-up-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-    }, false);
 }());
 
 
@@ -224,7 +293,7 @@ function isInViewport(el) {
 
         for (var i = 0; i < step; i++) {
             points[i].classList.add('active');
-            if(points[i - 1]) {
+            if (points[i - 1]) {
                 points[i - 1].classList.add('activated')
             }
         }
@@ -252,7 +321,7 @@ function isInViewport(el) {
             innerLine.style.width = "";
             offsetTop = offset(roadmap).top;
             roadmap.style.paddingBottom = '';
-            roadmap.style.paddingTop= '';
+            roadmap.style.paddingTop = '';
             updateMobileCanvas();
         }
     }

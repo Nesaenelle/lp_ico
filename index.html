@@ -74,7 +74,7 @@
                     <div class="goal__info_text last"> Become one of the first EX2 users</div>
                     <form novalidate class="js-email-form">
                         <div class="input">
-                            <input type="email" required>
+                            <input type="text" required data-pattern="email">
                             <button class="btn">
                                 Join Now
                             </button>
@@ -165,7 +165,7 @@
                     <br>Leave your e-mail! We'll be in touch!</div>
                 <form novalidate class="js-email-form">
                     <div class="input">
-                        <input type="email" required>
+                        <input type="text" required data-pattern="email">
                         <button class="btn">
                             Join Now
                         </button>
@@ -232,7 +232,6 @@
                                     <br>your smartphone</div>
                                 <div class="roadmap-canvas__month">june 2018</div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -291,7 +290,7 @@
                     <br>one step left! Subscribe!</div>
                 <form novalidate class="js-email-form">
                     <div class="input">
-                        <input type="email" required>
+                        <input type="text" required data-pattern="email">
                         <button class="btn">
                             Join Now
                         </button>
@@ -314,20 +313,22 @@
     <div class="modal" data-modal="sign-in">
         <div class="modal-body">
             <div class="modal-logo"><img class="modal-logo" src="img/icons/Logo_Ex2_180_180.svg"></div>
-            <form id="sign-in-form">
-                <div class="js-close-modal modal__close"></div>
-                <div class="modal-line-text"><span>LOG IN</span></div>
+            <div class="js-close-modal modal__close"></div>
+            <div class="modal-line-text"><span>LOG IN</span></div>
+            <form novalidate>
                 <div class="modal-text">Please check that you are visiting <a href="">https://www.exchange2.net</a></div>
                 <div class="modal-input-link">
                     <div class="modal-input-link-icon"><img src="img/padlock.svg" alt=""></div><b>https:</b>//www.exchange2.net</div>
-                <div class="modal-line-text"></div>
+            </form>
+            <div class="modal-line-text"></div>
+            <form id="sign-in-form" novalidate>
                 <div class="modal-label">Email</div>
                 <div class="modal-input">
-                    <input type="text" placeholder="Email" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
+                    <input type="text" placeholder="Email" required data-pattern="email">
                 </div>
                 <div class="modal-label">Password</div>
                 <div class="modal-input">
-                    <input type="password" placeholder="Password" required maxlength="40">
+                    <input type="password" placeholder="Password" required data-pattern="password">
                 </div>
                 <div class="modal-link">forgot password?</div>
                 <button class="btn">LOG IN</button>
@@ -339,28 +340,27 @@
         <div class="modal-body">
             <div class="js-close-modal modal__close"></div>
             <div class="modal-logo"><img class="modal-logo" src="img/icons/Logo_Ex2_180_180.svg"></div>
-            <form id="sign-up-form">
+            <div class="modal-line-text"><span>Create your account now</span></div>
+            <form id="sign-up-form" novalidate>
                 <div class="js-close-modal modal__close"></div>
-                <div class="modal-line-text"><span>Create your account now</span></div>
                 <div class="modal-label">Login</div>
                 <div class="modal-input">
-                    <input type="text" placeholder="Login" required maxlength="30" pattern="[A-Za-zА-Я0-9_]{1,30}">
+                    <input type="text" placeholder="Login" required data-pattern="login">
                 </div>
-                <div class="modal-line-text"></div>
                 <div class="modal-label">Email</div>
                 <div class="modal-input">
-                    <input type="text" placeholder="Provide an active address" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
+                    <input type="text" placeholder="Provide an active address" required data-pattern="email">
                 </div>
                 <div class="modal-label">Password</div>
                 <div class="modal-input">
-                    <input type="password" placeholder="Minimum 7 characters" required maxlength="40">
+                    <input type="password" placeholder="Minimum 7 characters" required data-pattern="password">
                 </div>
                 <div class="modal-label">Confirm Password</div>
                 <div class="modal-input">
-                    <input type="text" placeholder="Passwords must match" required maxlength="40">
+                    <input type="text" placeholder="Passwords must match" required data-pass-confirm="true">
                 </div>
                 <label class="modal-checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" data-pattern="checkbox" reuired data-pattern="checkbox">
                     <div class="modal-checkbox-icon"></div>
                     I agree with service <a href="">Terms &amp; Conditions</a>
                 </label>
@@ -403,7 +403,7 @@
                 <img class="modal-img" src="img/png/hands_1.png" alt="">
                 <form novalidate class="js-email-form">
                     <div class="input">
-                        <input type="email" required>
+                        <input type="text" required data-pattern="email">
                         <button class="btn">
                             Join Now
                         </button>
