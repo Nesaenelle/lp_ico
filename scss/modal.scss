@@ -460,6 +460,7 @@
         // display: block;
         &[data-modal="video"] {
             .modal-body {
+                padding: 0px!important;
                 max-width: 480px;
                 max-height: 270px;
             }

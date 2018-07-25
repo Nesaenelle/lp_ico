@@ -20,6 +20,30 @@
     .form-block.first {
         margin-top: 0;
     }
+
+    .roadmap-canvas {
+        padding: 0 180px;
+    }
+    .roadmap-canvas__text {
+        margin-left: -120px;
+    }
+    .roadmap-canvas__arrow {
+        left: -140px;
+        width: 140px;
+        &:after {
+            left: 120px;
+        }
+    }
+
+    .roadmap-canvas__point .roadmap-canvas__text {
+        font-size: 18px;
+    }
+    .roadmap-canvas__point:nth-child(even) .roadmap-canvas__text {
+        margin-left: -160px;
+    }
+    .roadmap-canvas__point:nth-child(even) .roadmap-canvas__arrow:before {
+        left: 158px;
+    }
 }
 
 
@@ -129,13 +153,12 @@
                 position: relative;
 
                 &:nth-child(odd) .roadmap-canvas__text {
-                    left: 300px;
+                    left: 250px;
                     top: -60px;
                     width: 245px;
                 }
                 &:nth-child(even) .roadmap-canvas__text {
-                    right: 150px;
-                    // top: 0px;
+                    right: 150px; // top: 0px;
                     width: 280px;
                     bottom: -41px;
                     top: auto;
@@ -143,12 +166,12 @@
 
                 &:nth-child(even) .roadmap-canvas__month {
                     left: 140px;
-                    top: 0;
+                    top: 4px;
                     width: auto
                 }
                 &:nth-child(odd) .roadmap-canvas__month {
                     right: 60px;
-                    top: 0;
+                    top: 4px;
                     width: auto
                 }
 
@@ -376,17 +399,16 @@
     .roadmap {
         &-canvas {
             $c: &;
-            &__text {
-                font-size: 16px;
-            }
-
-            &__month {
-                font-size: 16px;
-            }
-
             &__point {
+
+                #{$c}__text {
+                    font-size: 16px;
+                }
+                #{$c}__month {
+                    font-size: 16px;
+                }
                 &:nth-child(odd) .roadmap-canvas__text {
-                    left: 275px;
+                    left: 225px;
                     width: 215px;
                 }
                 &:nth-child(even) .roadmap-canvas__text {
@@ -416,9 +438,7 @@
 }
 
 @media screen and (max-width: 600px) {
-    // .our-team__list_item {
-    //     padding: 0 15   px;
-    // }
+
     .accessible__list {
         width: 90%;
     }
@@ -449,25 +469,27 @@
         height: 1250px;
         &-canvas {
             $c: &;
-            &__text {
-                font-size: 13px;
-            }
+
             &__arrow {
                 display: none;
             }
-            &__month {
-                font-size: 13px;
-            }
+
 
             &__point {
+                #{$c}__text {
+                    font-size: 13px;
+                }
+                #{$c}__month {
+                    font-size: 13px;
+                }
                 &:nth-child(odd) .roadmap-canvas__text {
 
-                    width: 125px;
-                    left: 215px;
+                    width: 120px;
+                    left: 180px;
                     top: -10px;
                 }
                 &:nth-child(even) .roadmap-canvas__text {
-                    width: 125px;
+                    width: 120px;
                     top: -10px;
                     right: 60px;
                 }
@@ -565,12 +587,5 @@
             width: 100%;
             text-align: center;
         }
-    }
-
-    .roadmap-canvas__point:nth-child(even) .roadmap-canvas__text {
-        // right: px;
-    }
-    .roadmap-canvas__text {
-        margin-left: -155px;
     }
 }
