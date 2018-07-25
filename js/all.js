@@ -147,7 +147,7 @@ var ModalClass = {};
         if (activeModal) {
             activeModal.classList.remove('opened');
             modalOverlay.classList.remove('opened');
-            document.body.style.overflow = '';
+            // document.body.style.overflow = '';
         }
     }
 
@@ -156,7 +156,7 @@ var ModalClass = {};
         modalOverlay.classList.add('opened');
         activeModal = document.querySelector('.modal[data-modal="' + id + '"]');
         activeModal.classList.add('opened');
-        document.body.style.overflow = 'hidden';
+        // document.body.style.overflow = 'hidden';
     }
 
     ModalClass.closeModal = closeModal;
