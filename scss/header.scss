@@ -226,13 +226,17 @@ header {
                         margin: 0;
                     }
                 }
+                &.active:after{
+                    width: 40%;
+                    margin: auto;
+                    display: block;
+                    left: 0;
+                    right: 0;
+                }
             }
         }
         ul {
             li {
-                // &.active a {
-                //     color: #39b54a;
-                // }
                 a {
                     padding: 20px;
                     display: block;

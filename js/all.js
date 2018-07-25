@@ -39,7 +39,7 @@ function isInViewport(el) {
     window.addEventListener('scroll', function() {
         tabs.forEach(function(elem) {
             // if (isInViewport(elem)) {
-            if (isScrolledIntoView(elem)) {
+            if (isScrolledIntoView(elem, 300)) {
                 var id = elem.getAttribute('data-navigation');
 
                 var links = document.querySelectorAll('[data-navigation-link');
@@ -153,6 +153,7 @@ function isInViewport(el) {
                 openModal('thank-you');
                 self.controls.forEach(function(ctrl) {
                     ctrl.input.value = '';
+                    ctrl.clear();
                 })
             }
         };
@@ -204,7 +205,7 @@ function isInViewport(el) {
         this.msg.innerHTML = 'Enter the correct email';
         this.input.parentNode.appendChild(this.msg);
         this.valid = false;
-    }
+    };
 
     Input.prototype.removeError = function() {
         this.input.classList.add('valid');
@@ -213,6 +214,13 @@ function isInViewport(el) {
         this.msg.innerHTML = 'This is correct email';
         this.input.parentNode.appendChild(this.msg);
         this.valid = true;
+    };
+
+    Input.prototype.clear = function() {
+        this.input.classList.remove('valid');
+        this.input.classList.remove('invalid');
+        this.input.parentNode.removeChild(this.msg);
+        this.valid = false;
     };
 
     function getPattern(o) {
