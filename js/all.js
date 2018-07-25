@@ -75,6 +75,32 @@ function isInViewport(el) {
 
 (function() {
 
+    var burger = document.querySelector('[data-burger]');
+    var menuContainer = document.querySelector('.dropdown-menu');
+    var closeBtn = document.querySelector('.dropdown-menu__close');
+
+    burger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (burger.classList.contains('active')) {
+            burger.classList.remove('active');
+        } else {
+            burger.classList.add('active');
+        }
+
+    }, false);
+
+    closeBtn.addEventListener('click', function(e) {
+        burger.classList.remove('active');
+    });
+
+    window.addEventListener('click', function(e) {
+        if (!menuContainer.contains(e.target)) {
+            burger.classList.remove('active');
+        }
+    }, false);
+
+
+
     var popupBtn = document.querySelectorAll('.js-popup');
     var modalOverlay = document.querySelector('#modal-overlay');
     var closeBtns = document.querySelectorAll('.js-close-modal');
@@ -85,6 +111,7 @@ function isInViewport(el) {
                 e.preventDefault();
                 var id = e.currentTarget.getAttribute('data-modal');
                 e.stopPropagation();
+                burger.classList.remove('active');
                 openModal(id);
             });
         });
@@ -251,33 +278,10 @@ function isInViewport(el) {
         var formInst = new Form(form);
     });
 
-}());
+/*}());
 
 
-(function() {
-    var burger = document.querySelector('[data-burger]');
-    var menuContainer = document.querySelector('.dropdown-menu');
-    var closeBtn = document.querySelector('.dropdown-menu__close');
-
-    burger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (burger.classList.contains('active')) {
-            burger.classList.remove('active');
-        } else {
-            burger.classList.add('active');
-        }
-
-    }, false);
-
-    closeBtn.addEventListener('click', function(e) {
-        burger.classList.remove('active');
-    });
-
-    window.addEventListener('click', function(e) {
-        if (!menuContainer.contains(e.target)) {
-            burger.classList.remove('active');
-        }
-    }, false);
+(function() {*/
 
 }());
 
